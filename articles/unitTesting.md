@@ -1,8 +1,30 @@
 # 怎么写比较好的单测 - 美观且实用
 
-> go自带生成冗余的unitTesting长且不美观，期望实际单元测试，可以实现例如每次对代码某处进行改动的后，只需要run一遍就能把所有之前的单测数据跑一遍，校验改动是否引入新错误的影响，降低代码bug
+> go自带生成冗余的unitTesting长且不美观，比较好的单元测试具有以下特性
 >
-> 做开源poj 发现某包：go get github.com/pingcap/check
+> [Software Engineering at Google - Unit Testing](https://qiangmzsx.github.io/Software-Engineering-at-Google/#/zh-cn/Chapter-12_Unit_Testing/Chapter-12_Unit_Testing)
+>
+> 1. 使用简洁的代码，清晰的代码层级，高效Run单元测试（绝大多数的单元测试只需要一个 "when "和一个 "then "块）
+>
+> 2. 好的测试库可以帮助我们更容易写出/打印有用的失败信息
+>
+> 3. 与其为每个方法写一个测试，不如为每个行为写一个测试
+>
+> 4. 以被测试的行为进行命名测试
+>
+> 5. 在测试代码中，坚持使用直线代码而不是复杂的逻辑，并在测试更具描述性的时候考虑容忍一些重复
+>
+>    「遵循DAMP而不是DRY！」
+>
+>    DRY—“Don’t Repeat Yourself.” 
+>
+>    DAMP—that is, to promote “Descriptive And Meaningful Phrases.”
+>
+> 
+>
+> 增加个人目的：希望实现例如每次对代码某处进行改动的后，只需要run一个方法一遍就能把所有之前的单测跑一遍，校验改动是否对之前的单测数据兼容。
+>
+> 做开源poj 发现某测试包：go get github.com/pingcap/check
 >
 > 封装好可开装直接使用，case如下，stdout简洁明了，体验不错
 
